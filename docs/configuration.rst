@@ -192,7 +192,7 @@ Blacklist Currencies from Lending
 
 With this option you can create a blacklist of currencies, which you don't want to use at all.
 
-- ``blacklistCurrencies`` is a list of currencies you would like to be avoid.
+- ``blacklistCurrencies`` is a list of currencies you would like to be avoided.
 
     - Default value: Commented out
     - Format: ``BTC,BTS,CLAM,DOGE,DASH,LTC,MAID,XMR,XRP,ETH,FCT``
