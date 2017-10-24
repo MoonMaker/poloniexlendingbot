@@ -12,7 +12,7 @@ all_currencies = STR,BTC,BTS,CLAM,DOGE,DASH,LTC,MAID,XMR,XRP,ETH,FCT
 
 [BITFINEX]
 # Full list of supported currencies
-all_currencies = USD,BTC,BCH,ETH,XRP,IOT,XMR,LTC,OMG,ETC,EOS,DSH,ZEC
+all_currencies = USD,BTC,BCH,BTG,ETH,XRP,IOT,XMR,LTC,OMG,ETC,EOS,DSH,ZEC
 
 [BOT]
 #Custom name of the bot, that will be displayed in html page
@@ -65,7 +65,7 @@ xdays = 60
 
 #Blacklist for currencies of funds to lending balance
 #The currencies you enter below will be blacklisted
-#blacklistCurrencies = BFG,NEO
+#blacklistCurrencies = BTG,NEO
 
 #Minimum loan size, the minimum size of offers to make, bigger values prevent the bot from loaning small available amounts but reduce loan fragmentation.
 minloansize = 0.01

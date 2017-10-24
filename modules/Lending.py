@@ -58,7 +58,7 @@ def init(cfg, api1, log1, data, maxtolend, dry_run1, analysis, notify_conf1):
     global sleep_time, sleep_time_active, sleep_time_inactive, min_daily_rate, max_daily_rate, spread_lend, \
         gap_bottom_default, gap_top_default, xday_threshold, xday_spread, xdays, min_loan_size, end_date, coin_cfg, \
         min_loan_sizes, dry_run, transferable_currencies, keep_stuck_orders, hide_coins, scheduler, gap_mode_default, \
-        exchange, analysis_method, currencies_to_analyse, blacklist_currencies
+        exchange, analysis_method, currencies_to_analyse, blacklist_currencies, all_currencies
 
     exchange = Config.get_exchange()
 
@@ -81,7 +81,8 @@ def init(cfg, api1, log1, data, maxtolend, dry_run1, analysis, notify_conf1):
     min_loan_sizes = Config.get_min_loan_sizes()
     dry_run = dry_run1
     transferable_currencies = Config.get_currencies_list('transferableCurrencies')
-    blacklist_currencies = Config.get_blacklist_currencies()
+    all_currencies = Config.get_list(exchange, 'all_currencies')
+    blacklist_currencies = Config.get_list('BOT', 'blacklistCurrencies')
     currencies_to_analyse = Config.get_currencies_list('analyseCurrencies', 'MarketAnalysis')
     keep_stuck_orders = Config.getboolean('BOT', "keepstuckorders", True)
     hide_coins = Config.getboolean('BOT', 'hideCoins', True)
@@ -243,7 +244,7 @@ def lend_all():
             break
     try:
         for cur in lending_balances:
-            if cur not in blacklist_currencies:
+            if cur in all_currencies and cur not in blacklist_currencies:
                 usable_currencies += lend_cur(cur, total_lent, lending_balances, ticker)
     except StopIteration:  # Restart lending if we stop to raise the request limit.
         lend_all()

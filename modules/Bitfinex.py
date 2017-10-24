@@ -30,6 +30,9 @@ class Bitfinex(ExchangeApi):
         self.symbols = []
         self.ticker = {}
         self.tickerTime = 0
+	self.baseCurrencies = ['USD', 'BTC', 'ETH']
+        self.all_currencies = self.cfg.get_list('BITFINEX', 'all_currencies')
+        self.blacklist_currencies = self.cfg.get_list('BOT', 'blacklistCurrencies')
         self.usedCurrencies = []
         self.timeout = int(self.cfg.get("BOT", "timeout", 30, 1, 180))
         self.api_debug_log = self.cfg.getboolean("BOT", "api_debug_log")
@@ -122,11 +125,10 @@ class Bitfinex(ExchangeApi):
         """
         if len(self.symbols) == 0:
             bfx_resp = self._get('symbols')
-            all_currencies = self.cfg.get_all_currencies()
             for symbol in bfx_resp:
                 base = symbol[3:].upper()
                 curr = symbol[:3].upper()
-                if base in ['USD', 'BTC'] and curr in all_currencies:
+                if ( base in self.baseCurrencies ) and ( curr in self.all_currencies ) and ( curr not in self.blacklist_currencies ):
                     self.symbols.append(symbol)
 
         return self.symbols
@@ -172,7 +174,7 @@ class Bitfinex(ExchangeApi):
         for symbol in self._get_symbols():
             base = symbol[3:].upper()
             curr = symbol[:3].upper()
-            if base in ['BTC', 'USD'] and (curr == 'BTC' or curr in self.usedCurrencies):
+            if ( base in self.baseCurrencies ) and (curr == 'BTC' or curr in self.usedCurrencies) and ( curr not in self.blacklist_currencies):
                 couple = (base + '_' + curr)
                 couple_reverse = (curr + '_' + base)
 

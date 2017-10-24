@@ -243,9 +243,11 @@ def get_plugins_config():
     return active_plugins
 
 
-def get_blacklist_currencies():
-    bcurs = []
-    if config.has_option("BOT", "blacklistCurrencies"):
-        bcurs = map(str.strip, config.get("BOT", "blacklistCurrencies").split(','))
-    return bcurs
+# Converts a string like "EUR, USD" to a list: E.g. [ "EUR", "USD" ]
+def get_list(category, option):
+    lst = []
+    if config.has_option(category, option):
+        lst = map(str.strip, config.get(category, option).split(','))
+    return lst
+
 
