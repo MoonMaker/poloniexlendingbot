@@ -64,7 +64,6 @@ xdays = 60
 #transferableCurrencies = USD,BTC,BCH,ETH,XRP,IOT,XMR,LTC,OMG,ETC,EOS,DSH,ZEC
 
 #Blacklist for currencies of funds to lending balance
-#Enter ALL to transfer all coins, enter ACTIVE to transfer any coins you have in your lending account when the bot starts, these can be mixed.
 #The currencies you enter below will be blacklisted
 #blacklistCurrencies = BFG,NEO
 
