@@ -63,6 +63,11 @@ xdays = 60
 #transferableCurrencies = STR,BTC,BTS,CLAM,DOGE,DASH,LTC,MAID,XMR,XRP,ETH,FCT
 #transferableCurrencies = USD,BTC,BCH,ETH,XRP,IOT,XMR,LTC,OMG,ETC,EOS,DSH,ZEC
 
+#Blacklist for currencies of funds to lending balance
+#Enter ALL to transfer all coins, enter ACTIVE to transfer any coins you have in your lending account when the bot starts, these can be mixed.
+#The currencies you enter below will be blacklisted
+#blacklistCurrencies = BFG,NEO
+
 #Minimum loan size, the minimum size of offers to make, bigger values prevent the bot from loaning small available amounts but reduce loan fragmentation.
 minloansize = 0.01
 

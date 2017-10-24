@@ -243,3 +243,9 @@ def get_plugins_config():
     return active_plugins
 
 
+def get_blacklist_currencies():
+    bcurs = []
+    if config.has_option("BOT", "plugins"):
+        bcurs = map(str.strip, config.get("BOT", "blacklistCurrencies").split(','))
+    return bcurs
+

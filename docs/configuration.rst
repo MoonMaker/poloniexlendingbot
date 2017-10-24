@@ -187,6 +187,17 @@ If you regularly transfer funds into your Poloniex account but don't enjoy havin
     - Do not worry about duplicates when using ``ACTIVE``, they are handled.
     - Coins will be transferred every time the bot runs (60 seconds by default) so if you intend to trade or withdrawal it is recommended to turn off the bot or disable this feature.
 
+Blacklist Currencies from Lending
+-----------------------------------
+
+With this option you can create a blacklist of currencies, which you don't want to use at all.
+
+- ``blacklistCurrencies`` is a list of currencies you would like to be transferred.
+
+    - Default value: Commented out
+    - Format: ``BTC,BTS,CLAM,DOGE,DASH,LTC,MAID,XMR,XRP,ETH,FCT``
+    - Commenting it out will disable the feature.
+
 Unimportant settings
 --------------------
 
