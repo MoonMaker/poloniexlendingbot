@@ -54,7 +54,11 @@ Exchange Sections
 There is a section for each exchange to configure exchange specific attributes.
 
 - ``all_currencies`` List of all supported currencies for funding. The list have to change only
-  when the exchange adds a new supported currency or removes one.
+  when the exchange adds a new supported currency or removes one. You can create a blacklist of currencies by using '#' in front of a specific one.
+
+    - Format: ``BTC,BTS,CLAM,DOGE,DASH,LTC,MAID,XMR,XRP,ETH,FCT,#BTG``
+
+
 
 Timing
 ---------
@@ -186,17 +190,6 @@ If you regularly transfer funds into your Poloniex account but don't enjoy havin
     - Entering ``ALL`` will simply transfer all coins available to lending.
     - Do not worry about duplicates when using ``ACTIVE``, they are handled.
     - Coins will be transferred every time the bot runs (60 seconds by default) so if you intend to trade or withdrawal it is recommended to turn off the bot or disable this feature.
-
-Blacklist Currencies from Lending
------------------------------------
-
-With this option you can create a blacklist of currencies, which you don't want to use at all.
-
-- ``blacklistCurrencies`` is a list of currencies you would like to be avoided.
-
-    - Default value: Commented out
-    - Format: ``BTC,BTS,CLAM,DOGE,DASH,LTC,MAID,XMR,XRP,ETH,FCT``
-    - Commenting it out will disable the feature.
 
 Unimportant settings
 --------------------

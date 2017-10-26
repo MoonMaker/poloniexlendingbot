@@ -180,7 +180,8 @@ def get_all_currencies():
         raw_cur_list = config.get(exchange, 'all_currencies').split(',')
         for raw_cur in raw_cur_list:
             cur = raw_cur.strip(' ').upper()
-            cur_list.append(cur)
+            if (cur[0] != "#"):		# Blacklisting: E.g. ETH, #BTG, QTUM
+                cur_list.append(cur)
         return cur_list
     elif exchange == 'POLONIEX':
         # default, compatibility to old 'Poloniex only' config
@@ -241,13 +242,5 @@ def get_plugins_config():
     if config.has_option("BOT", "plugins"):
         active_plugins = map(str.strip, config.get("BOT", "plugins").split(','))
     return active_plugins
-
-
-# Converts a string like "EUR, USD" to a list: E.g. [ "EUR", "USD" ]
-def get_list(category, option):
-    lst = []
-    if config.has_option(category, option):
-        lst = map(str.strip, config.get(category, option).split(','))
-    return lst
 
 
