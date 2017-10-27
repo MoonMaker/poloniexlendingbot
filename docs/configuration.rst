@@ -54,7 +54,7 @@ Exchange Sections
 There is a section for each exchange to configure exchange specific attributes.
 
 - ``all_currencies`` List of all supported currencies for funding. The list have to change only
-  when the exchange adds a new supported currency or removes one. You can create a blacklist of currencies by using '#' in front of a specific one.
+  when the exchange adds a new supported currency or removes one. You can blacklist specific currencies by prefacing it with a '#', this is the same as not including it on the list.
 
     - Format: ``BTC,BTS,CLAM,DOGE,DASH,LTC,MAID,XMR,XRP,ETH,FCT,#BTG``
 
